@@ -1,0 +1,54 @@
+<h1 class="container d-flex justify-content-center">Form Validation</h1>
+<div class="">
+  <div class="container">
+    <input
+      type="text"
+      class="form-control m-4 mt-5 bg-dark"
+      style="color: white"
+      name="Name"
+      placeholder="Enter Name"
+      [(ngModel)]="name"
+    />
+    <input
+      type="text"
+      class="form-control m-4 me-0 bg-dark"
+      style="color: white"
+      name="Email"
+      placeholder="Enter Email"
+      [(ngModel)]="email"
+    />
+    <input
+      type="text"
+      class="form-control m-4 me-0 bg-dark"
+      style="color: white"
+      name="phone Number"
+      placeholder="Enter Phone Number"
+      [(ngModel)]="phoneNumber"
+    />
+    <button class="btn btn-success rounded m-4" (click)="add()">{{buttonText}}</button>
+  </div>
+
+  <div class="container d-flex justify-content-center">
+    <table class="table table-bordered border border-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">PhoneNumber</th>
+        <th scope="col">Action</th>
+      </tr>
+      <tr *ngFor="let form of FormComp" class="bg-dark" style="color: white">
+        <td scope="col">{{ form.name }}</td>
+        <td scope="col">{{ form.email }}</td>
+        <td scope="col">{{ form.phoneNumber }}</td>
+        <td>
+          <button class="btn btn-primary rounded m-4" (click)="edit(form.id)">
+            Edit
+          </button>
+          <button class="btn btn-danger rounded m-4" (click)="Delete(form.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
